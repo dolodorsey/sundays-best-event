@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SUNDAY'S BEST — Dress Code: Your Best</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#F7F0E5;--accent:#D8BA7C;--light:#1C1B1F;--support:#8AA37B;--ease:cubic-bezier(0.16,1,0.3,1)}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--light);font-family:'Cormorant Garamond',serif;overflow-x:hidden}
+
+/* Grain overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
+  background:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:0.04;mix-blend-mode:overlay}
+
+/* Preloader */
+.preloader{position:fixed;inset:0;background:var(--bg);z-index:10000;display:flex;align-items:center;justify-content:center;
+  transition:opacity 0.8s var(--ease),visibility 0.8s}
+.preloader.done{opacity:0;visibility:hidden}
+.preloader img{width:clamp(120px,20vw,200px);animation:pulse 1.5s ease-in-out infinite}
+
+/* Hero */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  padding:80px 24px;position:relative}
+.hero-logo{width:clamp(140px,22vw,260px);margin-bottom:32px;opacity:0;animation:fadeUp 1s var(--ease) 0.8s forwards}
+.hero h1{font-size:clamp(56px,14vw,180px);font-weight:300;line-height:0.9;letter-spacing:-0.03em;
+  opacity:0;animation:fadeUp 0.8s var(--ease) 1s forwards}
+.hero h1 span{font-weight:700;font-style:italic;color:var(--accent)}
+.hero .tagline{font-size:clamp(14px,1.8vw,22px);letter-spacing:0.3em;text-transform:uppercase;color:var(--support);
+  margin-top:24px;font-weight:400;opacity:0;animation:fadeUp 0.6s var(--ease) 1.2s forwards}
+.hero .cities{font-size:clamp(11px,1vw,14px);letter-spacing:0.2em;color:var(--support);opacity:0.5;
+  margin-top:16px;opacity:0;animation:fadeUp 0.6s var(--ease) 1.4s forwards}
+
+/* Section */
+.section{padding:clamp(60px,10vw,120px) clamp(20px,6vw,80px)}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font-size:clamp(36px,6vw,72px);font-weight:300;line-height:1.1;letter-spacing:-0.02em;max-width:800px}
+.section-desc{font-size:clamp(15px,1.4vw,19px);color:var(--support);margin-top:16px;max-width:600px;line-height:1.7;font-weight:300}
+
+/* Flyer Gallery — Poster Wall */
+.gallery{padding:0 clamp(16px,4vw,60px) clamp(60px,8vw,100px)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.flyer{border-radius:8px;overflow:hidden;position:relative;opacity:0;animation:fadeUp 0.6s var(--ease) forwards}
+.flyer img{width:100%;height:auto;display:block;transition:transform 0.6s var(--ease)}
+.flyer:hover img{transform:scale(1.03)}
+
+/* CTA */
+.cta-section{text-align:center;padding:clamp(80px,12vw,160px) 24px}
+.cta-btn{display:inline-block;padding:18px 48px;border:1px solid var(--accent);color:var(--accent);
+  font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:0.2em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.4s var(--ease)}
+.cta-btn:hover{background:var(--accent);color:var(--bg)}
+
+/* Footer */
+footer{padding:40px 24px;text-align:center;font-size:11px;letter-spacing:0.15em;color:var(--support);opacity:0.4}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+
+/* Scroll reveals */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 0.8s var(--ease),transform 0.8s var(--ease)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* Mobile */
+@media(max-width:768px){
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .hero h1{font-size:clamp(42px,12vw,80px)}
+}
+</style>
+</head>
+<body>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/uploads/SUNDAY_S_BEST_LOGO.png" alt="SUNDAY'S BEST" />
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <img class="hero-logo" src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/uploads/SUNDAY_S_BEST_LOGO.png" alt="SUNDAY'S BEST" />
+  <h1>SUNDAY'S<br><span>BEST</span></h1>
+  <div class="tagline">Dress Code: Your Best</div>
+  <div class="cities">Atlanta · Houston · Charlotte</div>
+</section>
+
+<!-- About -->
+<section class="section reveal">
+  <div class="section-label">The Experience</div>
+  <h2 class="section-title">The classiest day party in the city.</h2>
+  <p class="section-desc">The classiest day party in the city. Fashion, food, and fellowship — every Sunday.</p>
+</section>
+
+<!-- Gallery -->
+<section class="gallery">
+  <div class="section-label reveal" style="padding:0 0 24px">Gallery</div>
+  <div class="gallery-grid">
+    
+        <div class="flyer" style="animation-delay:0.0s">
+          <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/sundays_best/03_event_flyers/SUNDAYS_BEST_SCENE.JPEG" alt="SUNDAY'S BEST flyer" loading="lazy" />
+        </div>
+        <div class="flyer" style="animation-delay:0.1s">
+          <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/sundays_best/03_event_flyers/SUNDAYS_BEST_MAIN2.JPEG" alt="SUNDAY'S BEST flyer" loading="lazy" />
+        </div>
+        <div class="flyer" style="animation-delay:0.2s">
+          <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/sundays_best/03_event_flyers/SUNDAYS_CROWD.png" alt="SUNDAY'S BEST flyer" loading="lazy" />
+        </div>
+        <div class="flyer" style="animation-delay:0.30000000000000004s">
+          <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/sundays_best/03_event_flyers/SUNDAYS_BEST_NEWS.png" alt="SUNDAY'S BEST flyer" loading="lazy" />
+        </div>
+        <div class="flyer" style="animation-delay:0.4s">
+          <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/sundays_best/03_event_flyers/SUNDAYS_COMING_SOON.png" alt="SUNDAY'S BEST flyer" loading="lazy" />
+        </div>
+        <div class="flyer" style="animation-delay:0.5s">
+          <img src="https://dzlmtvodpyhetvektfuo.supabase.co/storage/v1/object/public/brand-graphics/sundays_best/03_event_flyers/SUNDAYS_OUTFIT_COMING.png" alt="SUNDAY'S BEST flyer" loading="lazy" />
+        </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section reveal">
+  <div class="section-label">Join Us</div>
+  <h2 class="section-title" style="margin:0 auto 32px">Don't Miss<br>The Next One.</h2>
+  <a href="#" class="cta-btn">Get on the List</a>
+</section>
+
+<footer>
+  &copy; 2026 SUNDAY'S BEST — A Kollective Hospitality Group Experience
+</footer>
+
+<script>
+// Preloader
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('preloader').classList.add('done'),1200)});
+
+// Scroll reveals
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
