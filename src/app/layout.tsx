@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sunday's Best — A HUGLIFE Experience",
-  description: "The elevated Sunday experience.",
+  description: "Fashion, brunch, and rooftop energy. The elevated Sunday experience.",
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
