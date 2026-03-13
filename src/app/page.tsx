@@ -395,7 +395,10 @@ function ClosingCTA() {
 // ─── FOOTER ──────────────────────────────────────────────────────────────────
 function Footer() {
   return (
-    <footer style={{ padding: "40px clamp(32px,6vw,96px)", borderTop: `1px solid ${border}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
+    
+      <EventbriteTickets />
+
+      <footer style={{ padding: "40px clamp(32px,6vw,96px)", borderTop: `1px solid ${border}`, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
       <div>
         <div style={{ fontFamily: serif, fontSize: 18, fontWeight: 600, color: accent, letterSpacing: "0.06em" }}>Sunday's Best</div>
         <div style={{ fontFamily: sans, fontSize: 9, letterSpacing: "0.4em", textTransform: "uppercase", color: dim, marginTop: 4 }}>A HUGLIFE Experience · KHG Enterprise</div>
@@ -406,6 +409,86 @@ function Footer() {
 }
 
 // ─── ROOT ─────────────────────────────────────────────────────────────────────
+
+// ─── EVENTBRITE TICKETS SECTION ───────────────────────────────────────
+function EventbriteTickets() {
+  return (
+    <section id="tickets" style={{
+      padding:"80px 24px", maxWidth:"720px", margin:"0 auto",
+      position:"relative"
+    }}>
+      <div style={{textAlign:"center",marginBottom:"40px"}}>
+        <div style={{fontSize:"10px",fontWeight:700,letterSpacing:"0.2em",color:"#FF6B35",marginBottom:"12px",textTransform:"uppercase"}}>TICKETS</div>
+        <h2 style={{fontFamily:"'Cormorant Garamond','Playfair Display',serif",fontSize:"clamp(28px,5vw,42px)",fontWeight:600,color:"#fff",lineHeight:1.15,marginBottom:"12px"}}>Upcoming Events</h2>
+        <p style={{fontSize:"14px",color:"rgba(255,255,255,0.45)",maxWidth:"400px",margin:"0 auto"}}>Secure your spot. All tickets powered by Eventbrite.</p>
+      </div>
+      <div style={{display:"flex",flexDirection:"column",gap:"10px"}}>
+        
+            <a href="https://www.eventbrite.com/e/sunday-best-tickets-1983529471043" target="_blank" rel="noopener noreferrer" style={{
+              display:"flex", justifyContent:"space-between", alignItems:"center",
+              padding:"16px 20px", borderRadius:"14px",
+              background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)",
+              textDecoration:"none", color:"inherit",
+              transition:"all 0.3s ease", cursor:"pointer"
+            }} onMouseEnter={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.08)";e.currentTarget.style.transform="translateX(4px)"}}
+            onMouseLeave={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.04)";e.currentTarget.style.transform="translateX(0)"}}>
+              <div>
+                <div style={{fontSize:"14px",fontWeight:700,color:"#fff"}}>May</div>
+                <div style={{fontSize:"11px",color:"rgba(255,255,255,0.4)",marginTop:"2px"}}>Eventbrite · Tickets Available</div>
+              </div>
+              <div style={{padding:"8px 16px",borderRadius:"10px",background:"linear-gradient(135deg,#FF6B35,#FFB347)",color:"#000",fontSize:"11px",fontWeight:800,letterSpacing:"0.04em"}}>GET TICKETS</div>
+            </a>
+            <a href="https://www.eventbrite.com/e/sundays-best-tickets-1983552321389" target="_blank" rel="noopener noreferrer" style={{
+              display:"flex", justifyContent:"space-between", alignItems:"center",
+              padding:"16px 20px", borderRadius:"14px",
+              background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)",
+              textDecoration:"none", color:"inherit",
+              transition:"all 0.3s ease", cursor:"pointer"
+            }} onMouseEnter={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.08)";e.currentTarget.style.transform="translateX(4px)"}}
+            onMouseLeave={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.04)";e.currentTarget.style.transform="translateX(0)"}}>
+              <div>
+                <div style={{fontSize:"14px",fontWeight:700,color:"#fff"}}>July</div>
+                <div style={{fontSize:"11px",color:"rgba(255,255,255,0.4)",marginTop:"2px"}}>Eventbrite · Tickets Available</div>
+              </div>
+              <div style={{padding:"8px 16px",borderRadius:"10px",background:"linear-gradient(135deg,#FF6B35,#FFB347)",color:"#000",fontSize:"11px",fontWeight:800,letterSpacing:"0.04em"}}>GET TICKETS</div>
+            </a>
+            <a href="https://www.eventbrite.com/e/sundays-best-tickets-1983552570133" target="_blank" rel="noopener noreferrer" style={{
+              display:"flex", justifyContent:"space-between", alignItems:"center",
+              padding:"16px 20px", borderRadius:"14px",
+              background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)",
+              textDecoration:"none", color:"inherit",
+              transition:"all 0.3s ease", cursor:"pointer"
+            }} onMouseEnter={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.08)";e.currentTarget.style.transform="translateX(4px)"}}
+            onMouseLeave={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.04)";e.currentTarget.style.transform="translateX(0)"}}>
+              <div>
+                <div style={{fontSize:"14px",fontWeight:700,color:"#fff"}}>September</div>
+                <div style={{fontSize:"11px",color:"rgba(255,255,255,0.4)",marginTop:"2px"}}>Eventbrite · Tickets Available</div>
+              </div>
+              <div style={{padding:"8px 16px",borderRadius:"10px",background:"linear-gradient(135deg,#FF6B35,#FFB347)",color:"#000",fontSize:"11px",fontWeight:800,letterSpacing:"0.04em"}}>GET TICKETS</div>
+            </a>
+            <a href="https://www.eventbrite.com/e/sundays-best-tickets-1983552744655" target="_blank" rel="noopener noreferrer" style={{
+              display:"flex", justifyContent:"space-between", alignItems:"center",
+              padding:"16px 20px", borderRadius:"14px",
+              background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)",
+              textDecoration:"none", color:"inherit",
+              transition:"all 0.3s ease", cursor:"pointer"
+            }} onMouseEnter={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.08)";e.currentTarget.style.transform="translateX(4px)"}}
+            onMouseLeave={(e:any)=>{e.currentTarget.style.background="rgba(255,255,255,0.04)";e.currentTarget.style.transform="translateX(0)"}}>
+              <div>
+                <div style={{fontSize:"14px",fontWeight:700,color:"#fff"}}>November</div>
+                <div style={{fontSize:"11px",color:"rgba(255,255,255,0.4)",marginTop:"2px"}}>Eventbrite · Tickets Available</div>
+              </div>
+              <div style={{padding:"8px 16px",borderRadius:"10px",background:"linear-gradient(135deg,#FF6B35,#FFB347)",color:"#000",fontSize:"11px",fontWeight:800,letterSpacing:"0.04em"}}>GET TICKETS</div>
+            </a>
+      </div>
+      <div style={{textAlign:"center",marginTop:"32px"}}>
+        <p style={{fontSize:"11px",color:"rgba(255,255,255,0.25)"}}>Powered by Eventbrite · Secure checkout</p>
+      </div>
+    </section>
+  );
+}
+
+
 export default function Page() {
   return (
     <main style={{ background: bg, color: cream, fontFamily: sans, overflowX: "hidden" }}>
