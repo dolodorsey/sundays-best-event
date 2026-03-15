@@ -77,11 +77,7 @@ function Nav() {
         {["Experience","Cities","VIP","Access"].map(n => (
           <a key={n} href="#" style={{ fontFamily: sans, fontSize: 10, fontWeight: 500, letterSpacing: "0.22em", textTransform: "uppercase", color: muted, textDecoration: "none" }}>{n}</a>
         ))}
-        <button style={{
-          fontFamily: sans, fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
-          color: "#07070a", background: `linear-gradient(135deg, ${accent}, ${accentDeep})`,
-          border: "none", padding: "11px 28px", cursor: "pointer",
-        }}>Get Tickets</button>
+        <a href="https://huglife.vercel.app/#tickets" target="_blank" rel="noopener noreferrer" style={{textDecoration:"none"}}><button>Get Tickets</button></a>
       </div>
     </nav>
   );
@@ -129,11 +125,7 @@ function Hero() {
           opacity: loaded ? 1 : 0, transform: loaded ? "none" : "translateY(24px)",
           transition: "all 0.9s cubic-bezier(0.16,1,0.3,1) 0.8s",
         }}>
-          <button style={{
-            fontFamily: sans, fontSize: 11, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase",
-            color: "#07070a", background: `linear-gradient(135deg, ${accent}, ${accentDeep})`,
-            border: "none", padding: "16px 44px", cursor: "pointer",
-          }}>Get Tickets</button>
+          <a href="https://huglife.vercel.app/#tickets" target="_blank" rel="noopener noreferrer" style={{textDecoration:"none"}}><button>Get Tickets</button></a>
           <button style={{
             fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase",
             color: muted, background: "rgba(255,255,255,0.05)", border: `1px solid ${border}`,
@@ -375,11 +367,7 @@ function ClosingCTA() {
             The Room<br />Is <em>Waiting</em>
           </h2>
           <div style={{ display: "flex", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
-            <button style={{
-              fontFamily: sans, fontSize: 11, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase",
-              color: "#07070a", background: `linear-gradient(135deg, ${accent}, ${accentDeep})`,
-              border: "none", padding: "18px 52px", cursor: "pointer",
-            }}>Get Tickets</button>
+            <a href="https://huglife.vercel.app/#tickets" target="_blank" rel="noopener noreferrer" style={{textDecoration:"none"}}><button>Get Tickets</button></a>
             <button style={{
               fontFamily: sans, fontSize: 11, fontWeight: 500, letterSpacing: "0.16em", textTransform: "uppercase",
               color: muted, background: "transparent", border: `1px solid ${border}`,
