@@ -2,34 +2,94 @@
 import { useState, useEffect, useRef } from "react";
 const C={base:"#F7F0E5",surface:"#F0E8D8",panel:"#EAE0CE",border:"rgba(28,27,31,0.08)",brown:"#1C1B1F",brownMid:"rgba(28,27,31,0.65)",gold:"#D8BA7C",goldGlow:"rgba(216,186,124,0.3)",lavender:"#CDBCE5",lavGlow:"rgba(205,188,229,0.25)",sage:"#8AA37B",cream:"#FAF7F0",muted:"rgba(28,27,31,0.5)",dim:"rgba(28,27,31,0.3)"};
 const F={display:"'Playfair Display',Georgia,serif",sans:"'DM Sans',system-ui,sans-serif",mono:"'DM Mono',monospace"};
-const TICKETS=[{date:"May 10, 2026",url:"https://www.eventbrite.com/e/sunday-best-tickets-1983529471043",note:"Spring Session"},{date:"Jul 1, 2026",url:"https://www.eventbrite.com/e/sundays-best-tickets-1983552321389",note:"Summer Session"},{date:"Sep 19, 2026",url:"https://www.eventbrite.com/e/sundays-best-tickets-1983552570133",note:"Fall Session"},{date:"Nov 15, 2026",url:"https://www.eventbrite.com/e/sundays-best-tickets-1983552744655",note:"Holiday Session"}];
-function useInView(t=0.1){const ref=useRef<HTMLDivElement>(null);const[v,setV]=useState(false);useEffect(()=>{const el=ref.current;if(!el)return;const o=new IntersectionObserver(([e])=>{if(e.isIntersecting)setV(true)},{threshold:t});o.observe(el);return()=>o.disconnect()},[t]);return[ref,v] as const}
-function Reveal({children,d=0}:{children:React.ReactNode;d?:number}){const[ref,v]=useInView();return<div ref={ref} style={{transform:v?"translateY(0)":"translateY(40px)",opacity:v?1:0,transition:`all 1s cubic-bezier(0.16,1,0.3,1) ${d}s`}}>{children}</div>}
-function Nav(){const[sc,setSc]=useState(false);useEffect(()=>{const h=()=>setSc(window.scrollY>60);window.addEventListener("scroll",h,{passive:true});return()=>window.removeEventListener("scroll",h)},[]);return(<nav style={{position:"fixed",top:0,left:0,right:0,zIndex:200,padding:sc?"12px clamp(24px,4vw,60px)":"24px clamp(24px,4vw,60px)",display:"flex",justifyContent:"space-between",alignItems:"center",background:sc?`${C.base}F5`:"transparent",backdropFilter:sc?"blur(20px)":"none",borderBottom:sc?`1px solid ${C.border}`:"none",transition:"all 0.5s"}}><div><div style={{fontFamily:F.mono,fontSize:"7px",letterSpacing:"0.5em",textTransform:"uppercase",color:C.gold,marginBottom:"2px"}}>A KHG HugLife Event</div><span style={{fontFamily:F.display,fontSize:"20px",fontWeight:700,fontStyle:"italic",color:C.brown,letterSpacing:"0.04em"}}>Sunday&apos;s Best</span></div><div style={{display:"flex",gap:"24px",alignItems:"center"}}><a href="#tickets" style={{fontFamily:F.sans,fontSize:"10px",fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",color:C.base,background:C.brown,padding:"10px 24px",textDecoration:"none",display:"inline-block"}}>Get Tickets</a></div></nav>);}
-function Hero(){const[ld,setLd]=useState(false);useEffect(()=>{setTimeout(()=>setLd(true),100)},[]);return(<section style={{position:"relative",width:"100%",height:"100vh",overflow:"hidden",background:C.base,display:"flex",alignItems:"flex-end"}}><div style={{position:"absolute",inset:0}}><div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse at 60% 40%, ${C.goldGlow} 0%, transparent 55%)`}}/><div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse at 30% 70%, ${C.lavGlow} 0%, transparent 50%)`}}/></div><div style={{position:"absolute",inset:0,background:"linear-gradient(to top, rgba(247,240,229,0.97) 0%, rgba(247,240,229,0.4) 55%, transparent 100%)"}}/>
-<div style={{position:"relative",zIndex:2,width:"100%",padding:"0 clamp(32px,5vw,80px) clamp(60px,7vh,96px)",maxWidth:"1400px",margin:"0 auto"}}>
-<div style={{opacity:ld?1:0,transition:"opacity 0.8s ease 0.3s",fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.5em",textTransform:"uppercase",color:C.gold,marginBottom:"20px"}}>Atlanta · Sunday Brunch Culture · 2026</div>
-<h1 style={{fontFamily:F.display,fontSize:"clamp(52px,10vw,150px)",fontWeight:400,fontStyle:"italic",lineHeight:0.88,color:C.brown,margin:"0 0 8px",opacity:ld?1:0,transform:ld?"translateY(0)":"translateY(48px)",transition:"all 1.2s cubic-bezier(0.16,1,0.3,1) 0.4s"}}>Sunday&apos;s</h1>
-<h1 style={{fontFamily:F.display,fontSize:"clamp(52px,10vw,150px)",fontWeight:700,lineHeight:0.88,color:C.gold,margin:"0 0 36px",opacity:ld?1:0,transform:ld?"translateY(0)":"translateY(48px)",transition:"all 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s"}}>Best</h1>
-<p style={{fontFamily:F.sans,fontSize:"clamp(14px,1.2vw,17px)",lineHeight:1.85,color:C.muted,maxWidth:"460px",marginBottom:"40px",opacity:ld?1:0,transition:"opacity 1s ease 1.0s"}}>Atlanta&apos;s most elevated Sunday experience. Brunch culture, live music, great food, and a crowd that dresses up and shows up. Four sessions. Four seasons. All year long.</p>
-<div style={{display:"flex",gap:"14px",flexWrap:"wrap",opacity:ld?1:0,transition:"opacity 1s ease 1.3s"}}><a href="#tickets" style={{fontFamily:F.sans,fontSize:"10px",fontWeight:700,letterSpacing:"0.14em",textTransform:"uppercase",color:C.base,background:C.brown,padding:"15px 48px",textDecoration:"none",display:"inline-block"}}>Get Tickets</a><a href="mailto:thekollectiveworldwide@gmail.com?subject=Sunday Best VIP Inquiry" style={{fontFamily:F.sans,fontSize:"10px",fontWeight:500,letterSpacing:"0.14em",textTransform:"uppercase",color:C.brown,background:"transparent",border:`1px solid ${C.border}`,padding:"15px 36px",textDecoration:"none",display:"inline-block"}}>VIP Brunch</a></div>
-</div></section>);}
-function Tickets(){const[sel,setSel]=useState(0);return(<section id="tickets" style={{background:C.surface,padding:"100px clamp(32px,5vw,80px)",position:"relative",overflow:"hidden"}}><div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse at 50% 50%, ${C.goldGlow} 0%, transparent 55%)`}}/><div style={{maxWidth:"1200px",margin:"0 auto",position:"relative",zIndex:1}}>
-<Reveal><div style={{fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.5em",textTransform:"uppercase",color:C.gold,marginBottom:"16px"}}>2026 Season</div>
-<div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",flexWrap:"wrap",gap:"24px",marginBottom:"48px"}}><h2 style={{fontFamily:F.display,fontSize:"clamp(36px,6vw,84px)",fontWeight:400,fontStyle:"italic",color:C.brown,lineHeight:0.9}}>Reserve Your Sunday</h2><p style={{fontFamily:F.sans,fontSize:"14px",color:C.brownMid,maxWidth:"300px",lineHeight:1.75}}>Four seasons. Four unforgettable Sundays.</p></div></Reveal>
-<div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"3px",marginBottom:"3px"}}>
-{TICKETS.map((t,i)=><Reveal key={t.date} d={i*0.07}><div onClick={()=>setSel(i)} style={{background:sel===i?C.panel:C.base,padding:"40px 32px",cursor:"pointer",border:`2px solid ${sel===i?C.gold:C.border}`,transition:"all 0.3s"}}>
-<div style={{display:"flex",alignItems:"center",gap:"6px",marginBottom:"14px"}}><div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#15803D",animation:"pulse 2s infinite"}}/><span style={{fontFamily:F.mono,fontSize:"8px",letterSpacing:"0.25em",color:"#15803D",textTransform:"uppercase"}}>On Sale</span></div>
-<div style={{fontFamily:F.display,fontSize:"clamp(20px,2.5vw,32px)",fontStyle:"italic",color:C.brown,marginBottom:"4px"}}>{t.date}</div>
-<div style={{fontFamily:F.sans,fontSize:"12px",color:C.gold,marginBottom:"4px"}}>{t.note}</div>
-<div style={{fontFamily:F.sans,fontSize:"11px",color:C.brownMid,marginBottom:"22px"}}>Atlanta, GA</div>
-<a href={t.url} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} style={{fontFamily:F.sans,fontSize:"10px",fontWeight:700,letterSpacing:"0.15em",textTransform:"uppercase",color:sel===i?C.base:C.brown,background:sel===i?C.brown:"transparent",border:sel===i?"none":`1px solid ${C.border}`,padding:"13px 28px",textDecoration:"none",display:"inline-block",transition:"all 0.3s"}}>Buy Tickets →</a>
-</div></Reveal>)}
-</div>
-<Reveal d={0.2}><div style={{background:C.base,padding:"32px 36px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"24px",border:`1px solid ${C.border}`,borderLeft:`3px solid ${C.gold}`}}>
-<div><div style={{fontFamily:F.mono,fontSize:"8px",letterSpacing:"0.4em",textTransform:"uppercase",color:C.gold,marginBottom:"8px"}}>Groups & Brunch Packages</div><div style={{fontFamily:F.display,fontSize:"clamp(16px,2vw,22px)",fontStyle:"italic",color:C.brown}}>Private brunch tables & group reservations</div></div>
-<div style={{display:"flex",gap:"12px",flexWrap:"wrap"}}><a href="mailto:thekollectiveworldwide@gmail.com?subject=Sunday Best VIP Brunch Inquiry" style={{fontFamily:F.sans,fontSize:"10px",fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",color:C.base,background:C.brown,padding:"12px 28px",textDecoration:"none",display:"inline-block"}}>Brunch VIP</a><a href="mailto:thekollectiveworldwide@gmail.com?subject=Sunday Best Group Reservation" style={{fontFamily:F.sans,fontSize:"10px",fontWeight:500,letterSpacing:"0.12em",textTransform:"uppercase",color:C.brown,background:"transparent",border:`1px solid ${C.border}`,padding:"12px 24px",textDecoration:"none",display:"inline-block"}}>Group Table</a></div></div></Reveal>
-<div style={{marginTop:"28px",display:"flex",gap:"32px",justifyContent:"center",flexWrap:"wrap"}}>{["Powered by Eventbrite","Secure Checkout","All Ages Welcome","Dress Code Required"].map(s=><div key={s} style={{fontFamily:F.mono,fontSize:"9px",color:"rgba(28,27,31,0.3)",letterSpacing:"0.2em"}}>{s}</div>)}</div>
-</div><style>{`@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}`}</style></section>);}
+// ─── TICKET DATA ─────────────────────────────────────────────────────────────
+const HUGLIFE_HUB = "https://huglife.vercel.app/#tickets";
+const SB_TICKETS = [
+  { date:"May 10, 2026", note:"Spring Brunch", url:"https://www.eventbrite.com/e/sunday-best-tickets-1983529471043" },
+  { date:"Jul 1, 2026",  note:"Summer Brunch", url:"https://www.eventbrite.com/e/sundays-best-tickets-1983552321389" },
+];
+
+function Tickets(){
+  const [sel, setSel] = useState(0);
+  return (
+    <section id="tickets" style={{background:C.surface,padding:"100px clamp(32px,5vw,80px)",position:"relative",overflow:"hidden"}}>
+      <div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse at 50% 50%, ${C.goldGlow} 0%, transparent 55%)`}}/>
+      <Grain/>
+      <div style={{maxWidth:"1100px",margin:"0 auto",position:"relative",zIndex:1}}>
+        <Reveal>
+          <div style={{fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.5em",textTransform:"uppercase",color:C.gold,marginBottom:"16px"}}>
+            Tickets & Access
+          </div>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-end",flexWrap:"wrap",gap:"24px",marginBottom:"48px"}}>
+            <h2 style={{fontFamily:F.serif,fontSize:"clamp(36px,5.5vw,72px)",fontWeight:400,fontStyle:"italic",lineHeight:0.9,color:C.brown}}>
+              Reserve Your<br/>Sunday
+            </h2>
+            <div style={{display:"flex",alignItems:"center",gap:"8px"}}>
+              <div style={{width:"8px",height:"8px",borderRadius:"50%",background:"#4ADE80",boxShadow:"0 0 8px #4ADE80",animation:"sbPulse 2s ease-in-out infinite"}}/>
+              <span style={{fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.3em",color:"#4ADE80",textTransform:"uppercase"}}>Tickets On Sale</span>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Date cards */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"2px",background:`${C.gold}20`,marginBottom:"3px"}}>
+          {SB_TICKETS.map((t,i)=>(
+            <Reveal key={t.date} d={i*0.1}>
+              <div onClick={()=>setSel(i)} style={{
+                background:sel===i?`linear-gradient(145deg,${C.surface},${C.panel})`:"rgba(255,255,255,0.03)",
+                padding:"40px 36px",cursor:"pointer",
+                borderTop:`2px solid ${sel===i?C.gold:"transparent"}`,
+                transition:"all 0.3s",
+              }}>
+                <div style={{display:"flex",alignItems:"center",gap:"8px",marginBottom:"12px"}}>
+                  <div style={{width:"6px",height:"6px",borderRadius:"50%",background:"#4ADE80",boxShadow:"0 0 6px #4ADE80",animation:"sbPulse 2s ease-in-out infinite"}}/>
+                  <span style={{fontFamily:F.mono,fontSize:"8px",letterSpacing:"0.3em",color:"#4ADE80",textTransform:"uppercase"}}>On Sale Now</span>
+                </div>
+                <div style={{fontFamily:F.serif,fontSize:"clamp(22px,3vw,36px)",fontStyle:"italic",color:C.brown,marginBottom:"8px"}}>{t.date}</div>
+                <div style={{fontFamily:F.mono,fontSize:"10px",color:C.gold,marginBottom:"24px"}}>{t.note}</div>
+                <a href={t.url} target="_blank" rel="noopener noreferrer" onClick={e=>e.stopPropagation()} style={{
+                  fontFamily:F.mono,fontSize:"10px",fontWeight:700,letterSpacing:"0.15em",textTransform:"uppercase",
+                  color:"#fff",background:C.gold,padding:"14px 36px",
+                  textDecoration:"none",display:"inline-block",transition:"all 0.3s",
+                }}
+                  onMouseEnter={e=>(e.currentTarget as HTMLAnchorElement).style.transform="translateY(-2px)"}
+                  onMouseLeave={e=>(e.currentTarget as HTMLAnchorElement).style.transform="translateY(0)"}
+                >Buy Tickets →</a>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+
+        {/* Group & VIP strip */}
+        <Reveal d={0.2}>
+          <div style={{background:C.panel,padding:"28px 32px",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"20px"}}>
+            <div>
+              <div style={{fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.4em",textTransform:"uppercase",color:C.gold,marginBottom:"6px"}}>Groups · VIP · Private Dining</div>
+              <div style={{fontFamily:F.serif,fontSize:"18px",fontStyle:"italic",color:C.brown}}>Celebrating with 8 or more?</div>
+            </div>
+            <div style={{display:"flex",gap:"12px",flexWrap:"wrap"}}>
+              <a href="mailto:thekollectiveworldwide@gmail.com?subject=Sunday's Best Group Inquiry" style={{
+                fontFamily:F.mono,fontSize:"9px",fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",
+                color:"#fff",background:C.gold,padding:"12px 28px",textDecoration:"none",display:"inline-block",
+              }}>Reserve Your Table</a>
+              <a href="mailto:thekollectiveworldwide@gmail.com?subject=Sunday's Best VIP Inquiry" style={{
+                fontFamily:F.mono,fontSize:"9px",fontWeight:500,letterSpacing:"0.12em",textTransform:"uppercase",
+                color:C.brown,background:"transparent",border:`1px solid ${C.gold}40`,padding:"12px 24px",
+                textDecoration:"none",display:"inline-block",
+              }}>VIP Inquiry</a>
+            </div>
+          </div>
+        </Reveal>
+
+        <div style={{marginTop:"24px",display:"flex",gap:"24px",justifyContent:"center",flexWrap:"wrap"}}>
+          {["Powered by Eventbrite","Secure Checkout","Instant Confirmation","21+ Event"].map(s=>(
+            <div key={s} style={{fontFamily:F.mono,fontSize:"9px",color:"rgba(255,255,255,0.18)",letterSpacing:"0.15em"}}>{s}</div>
+          ))}
+        </div>
+      </div>
+      <style>{\`@keyframes sbPulse{0%,100%{opacity:1}50%{opacity:0.3}}\`}</style>
+    </section>
+  );
+}
 function Footer(){return(<footer style={{background:C.panel,borderTop:`1px solid ${C.border}`,padding:"48px clamp(32px,5vw,80px) 32px"}}><div style={{maxWidth:"1400px",margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"24px"}}><div><div style={{fontFamily:F.display,fontSize:"22px",fontStyle:"italic",color:C.brown,marginBottom:"4px"}}>Sunday&apos;s Best</div><div style={{fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.3em",color:C.gold}}>A KHG HUGLIFE EVENT</div></div><div style={{fontFamily:F.mono,fontSize:"10px",color:C.brownMid}}>© 2026 Sunday&apos;s Best. A KHG Enterprise.</div></div></footer>);}
 export default function SundaysBestSite(){return(<div style={{background:C.base}}><Nav/><Hero/><Tickets/><Footer/></div>);}
