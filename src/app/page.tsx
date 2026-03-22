@@ -13,6 +13,16 @@ function Tickets(){
   const [sel, setSel] = useState(0);
   return (
     <section id="tickets" style={{background:C.surface,padding:"100px clamp(32px,5vw,80px)",position:"relative",overflow:"hidden"}}>
+<style>{`@media(max-width:768px){
+  .dg,.DG,[style*="gridTemplateColumns"]{grid-template-columns:1fr!important}
+  .nl,.desktop-nav{display:none!important}
+  .fg,.stat-grid,.feature-grid{grid-template-columns:1fr!important}
+  .eg{grid-template-columns:1fr!important}
+  h1,h2,.hero-title{word-break:break-word}
+  nav{padding:16px!important}
+  section{padding-left:16px!important;padding-right:16px!important}
+}`}</style>
+
       <div style={{position:"absolute",inset:0,background:`radial-gradient(ellipse at 50% 50%, ${C.goldGlow} 0%, transparent 55%)`}}/>
       <Grain/>
       <div style={{maxWidth:"1100px",margin:"0 auto",position:"relative",zIndex:1}}>
@@ -88,15 +98,6 @@ function Tickets(){
         </div>
       </div>
       <style>{`@keyframes sbPulse{0%,100%{opacity:1}50%{opacity:0.3}}`}
-@media(max-width:768px){
-  .dg,.DG,[style*="gridTemplateColumns"]{grid-template-columns:1fr!important}
-  .nl,.desktop-nav{display:none!important}
-  .fg,.stat-grid,.feature-grid{grid-template-columns:1fr!important}
-  .eg{grid-template-columns:1fr!important}
-  h1,h2,.hero-title{word-break:break-word}
-  nav{padding:16px!important}
-  section{padding-left:16px!important;padding-right:16px!important}
-}
 </style>
     </section>
   );
