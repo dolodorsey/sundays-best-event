@@ -67,7 +67,7 @@ function Tickets(){
               <div style={{fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.4em",textTransform:"uppercase",color:C.gold,marginBottom:"6px"}}>Groups · VIP · Private Dining</div>
               <div style={{fontFamily:F.serif,fontSize:"18px",fontStyle:"italic",color:C.brown}}>Celebrating with 8 or more?</div>
             </div>
-            <div style={{display:"flex",gap:"12px",flexWrap:"wrap"}}>
+            <div className="nl" style={{display:"flex",gap:"12px",flexWrap:"wrap"}}>
               <a href="mailto:thekollectiveworldwide@gmail.com?subject=Sunday's Best Group Inquiry" style={{
                 fontFamily:F.mono,fontSize:"9px",fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",
                 color:"#fff",background:C.gold,padding:"12px 28px",textDecoration:"none",display:"inline-block",
@@ -87,9 +87,19 @@ function Tickets(){
           ))}
         </div>
       </div>
-      <style>{`@keyframes sbPulse{0%,100%{opacity:1}50%{opacity:0.3}}`}</style>
+      <style>{`@keyframes sbPulse{0%,100%{opacity:1}50%{opacity:0.3}}`}
+@media(max-width:768px){
+  .dg,.DG,[style*="gridTemplateColumns"]{grid-template-columns:1fr!important}
+  .nl,.desktop-nav{display:none!important}
+  .fg,.stat-grid,.feature-grid{grid-template-columns:1fr!important}
+  .eg{grid-template-columns:1fr!important}
+  h1,h2,.hero-title{word-break:break-word}
+  nav{padding:16px!important}
+  section{padding-left:16px!important;padding-right:16px!important}
+}
+</style>
     </section>
   );
 }
 function Footer(){return(<footer style={{background:C.panel,borderTop:`1px solid ${C.border}`,padding:"48px clamp(32px,5vw,80px) 32px"}}><div style={{maxWidth:"1400px",margin:"0 auto",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:"24px"}}><div><div style={{fontFamily:F.display,fontSize:"22px",fontStyle:"italic",color:C.brown,marginBottom:"4px"}}>Sunday&apos;s Best</div><div style={{fontFamily:F.mono,fontSize:"9px",letterSpacing:"0.3em",color:C.gold}}>A KHG HUGLIFE EVENT</div></div><div style={{fontFamily:F.mono,fontSize:"10px",color:C.brownMid}}>© 2026 Sunday&apos;s Best. A KHG Enterprise.</div></div></footer>);}
-export default function SundaysBestSite(){return(<div style={{background:C.base}}><Nav/><Hero/><Tickets/><Footer/></div>);}
+export default function SundaysBestSite(){return(<div style={{background:C.base,overflowX:'hidden'}}><Nav/><Hero/><Tickets/><Footer/></div>);}
